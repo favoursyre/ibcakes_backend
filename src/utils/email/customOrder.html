@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=Poppins');
+      html {
+        padding: 0px;
+        overflow-x: hidden;
+        //border: 2px solid yellow;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        background-image: linear-gradient(to bottom, #ffe0ec, white);
+        font-family: 'Poppins';
+      }
+
+      body {
+        //align-items: center;
+        position: absolute;
+        //border: 2px solid blue;
+        width: 95%;
+        height: 95%;
+      }
+
+      main {
+        //align-items: center;
+        position: relative;
+        border: 2px solid blue;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 95%;
+        height: 100%;
+        padding: 1% 2.5%;
+      }
+
+      .logo {
+        position: relative;
+        border: 2px solid blue;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 95%;
+        height: 10%;
+        margin-bottom: 20px;
+      }
+
+      img {
+        position: relative;
+        //border: 2px solid blue;
+        width: 10%;
+        height: 100%;
+      }
+
+      .brief {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
+        border: 2px solid yellow;
+        top: 5%;
+        font-size: 20px;
+      }
+
+      .orderId {
+        border: 2px solid yellow;
+        color: rgb(231, 97, 149);
+      }
+
+      .message {
+        border: 2px solid blue;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 5%;
+        top: 10%;
+        font-size: 18px;
+        line-height: 22px;
+      }
+
+      #salute {
+
+      }
+
+      #body {
+        border: 2px solid blue;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        top: 15%;
+      }
+
+    /* This is for mobile */
+    @media (min-width: 550px) and (max-width: 1024px) {
+      img {
+        width: 15%;
+      }
+    }
+
+      /* This is for mobile */
+      @media (min-width: 0px) and (max-width: 550px) {
+
+        .logo {
+          margin-bottom: 0px;
+        }
+
+        img {
+          width: 30%;
+        }
+
+        .brief {
+          font-size: 18px;
+          flex-direction: column;
+        }
+
+        .message {
+          font-size: 16px;
+        }
+
+        #body {
+          top: 5%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <header class="logo">
+        <img 
+            src="https://drive.google.com/uc?export=download&id=1ZfcsAOOA2vhkmgIVekY8vetMv__2TN9o"
+            alt="test"
+        />
+      </header>
+      <div class="brief">
+        <span class="orderId">
+          <strong> Custom Order ID: </strong> 634148435130 
+        </span>
+        <span class="orderDate">
+          Order Date: <strong>Feb 16, 2022</strong>
+        </span>
+      </div>
+      <div class="message">
+        <span id="salute">Dear Syre Musk,</span>
+        
+        <span id="body">Your order has been successfully sent. 
+        <br />
+        <br />
+        Rest assured that our team is diligently reviewing your request, and we will get back to you shortly with more details and further assistance. We understand the importance of your order and want to ensure that we meet your expectations. 
+        <br />
+        <br />
+        If you have any additional information or specific requirements for your order, please feel free to share them with us. 
+        <br />
+        <br />
+        We look forward to creating a delightful delicacy that will make your occasion truly special.
+        <br />
+        <br />
+        Best regards, <br />
+        IB Cakes & Catering Team
+        </span>
+      </div>
+    </main>
+    <script></script>
+  </body>
+</html>
