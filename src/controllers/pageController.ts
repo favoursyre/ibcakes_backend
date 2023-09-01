@@ -7,6 +7,7 @@ import { IView } from "../utils/interfaces";
 import { Product } from "../models/productModel";
 import "dotenv/config";
 import { Inquiry } from "../models/inquiryModel";
+import { sendInquiryEmail } from "../utils/utils";
 
 //Commencing the code
 const SECRET = process.env.SECRET;
@@ -107,10 +108,17 @@ export const homePage = async (req: Request, res: Response): Promise<void> => {
 //Make inquiry Page
 export const createInquiry = async (req: Request, res: Response): Promise<void> => {
   try {
-    console.log('Inquiry: ', req.body)
+    
     const inquiry = await Inquiry.sendInquiry(req.body)
+    console.log('Inquiry: ', inquiry)
+
+    //send email to client
+      const email = await sendInquiryEmail(inquiry)
+      console.log("Email: ", email)
+
       res.status(200).json(inquiry);
   } catch (error) {
+    console.log("Error: ", error)
     const error_: IView = {msg: `${error}`}
     res.status(400).json(error_);
   }

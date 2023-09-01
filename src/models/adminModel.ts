@@ -8,8 +8,8 @@ const validator = require("validator");
 
 //Commencing the app
 const Schema = mongoose.Schema;
-ADMIN_EMAIL = process.env.ADMIN_EMAIL;
-ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 
 //This is the schema for the user database
 const adminSchema = new Schema(
@@ -46,55 +46,55 @@ adminSchema.statics.createAdmin = async function () {
 };
 
 //Static login method
-adminSchema.statics.login = async function (emailAddress, password) {
-  //Validation of args
-  if (!emailAddress) {
-    throw Error("Email is required");
-  } else if (!password) {
-    throw Error("Password is required");
-  } else if (!validator.isEmail(emailAddress)) {
-    throw Error("Email not valid");
-  }
+// adminSchema.statics.login = async function (emailAddress, password) {
+//   //Validation of args
+//   if (!emailAddress) {
+//     throw Error("Email is required");
+//   } else if (!password) {
+//     throw Error("Password is required");
+//   } else if (!validator.isEmail(emailAddress)) {
+//     throw Error("Email not valid");
+//   }
 
-  //Processing the login process
-  const admin = await this.findOne({ emailAddress });
-  if (!admin) {
-    throw Error("Incorrect email");
-  }
+//   //Processing the login process
+//   const admin = await this.findOne({ emailAddress });
+//   if (!admin) {
+//     throw Error("Incorrect email");
+//   }
 
-  const passwordStatus = await bcrypt.compare(password, admin.password);
-  if (!passwordStatus) {
-    throw Error("Incorrect password");
-  }
+//   const passwordStatus = await bcrypt.compare(password, admin.password);
+//   if (!passwordStatus) {
+//     throw Error("Incorrect password");
+//   }
 
-  return admin;
-};
+//   return admin;
+// };
 
 //Static update method
-adminSchema.statics.updateAdmin = async (emailAddress, password) => {
-  //Validation of args
-  if (!emailAddress) {
-    throw Error("Email is required");
-  } else if (!password) {
-    throw Error("Password is required");
-  } else if (!validator.isEmail(email)) {
-    throw Error("Email not valid");
-  }
+// adminSchema.statics.updateAdmin = async (emailAddress, password) => {
+//   //Validation of args
+//   if (!emailAddress) {
+//     throw Error("Email is required");
+//   } else if (!password) {
+//     throw Error("Password is required");
+//   } else if (!validator.isEmail(email)) {
+//     throw Error("Email not valid");
+//   }
 
-  //Processing the login process
-  const admin = await this.findOne({ emailAddress });
-  if (!admin) {
-    throw Error("Email doesn't exist");
-  }
+//   //Processing the login process
+//   const admin = await this.findOne({ emailAddress });
+//   if (!admin) {
+//     throw Error("Email doesn't exist");
+//   }
 
-  //Updating the admin
-  const newAdmin = await task.findOneAndUpdate(
-    { emailAddress: emailAddress },
-    { ...req.body }
-  );
+//   //Updating the admin
+//   const newAdmin = await task.findOneAndUpdate(
+//     { emailAddress: emailAddress },
+//     { ...req.body }
+//   );
 
-  return newAdmin;
-};
+//   return newAdmin;
+// };
 
 //Static delete method
 adminSchema.statics.deleteAdmin = async () => {};

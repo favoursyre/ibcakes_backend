@@ -42,19 +42,16 @@ const cartOrderSchema = new Schema<ICartOrder, ICartOrderModel>(
       }
     },
     paymentSpec: {
-      gateway: {
+      url: {
         type: String,
-        default: "Paystack",
         required: true,
       },
       status: {
         type: String,
-        default: "Pending",
         required: true,
       },
-      referenceID: {
+      reference: {
         type: String,
-        default: "Null",
         required: true,
       },
     },

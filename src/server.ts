@@ -9,6 +9,9 @@ import pageRoutes from "./routes/pageRoute"
 import adminRoutes from "./routes/adminRoute"
 import userRoutes from "./routes/userRoute"
 import bodyParser from 'body-parser';
+import hbs from "handlebars"
+import exphbs from "express-handlebars"
+import path from "path"
 
 //Commencing the code
 const app: Application = express()
@@ -23,6 +26,14 @@ const corsOptions = {
 };
 
 //middleware
+// app.engine(
+//   'hbs',
+//   exphbs({
+//     extname: '.hbs',
+//   })
+// );
+app.set('views', path.join(__dirname, 'emails'));
+app.set('view engine', 'hbs');
 app.use(bodyParser.json({ limit: "20mb" }))
 
 app.use(express.json());

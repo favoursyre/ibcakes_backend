@@ -2,7 +2,7 @@
 
 //Libraries -->
 import {Schema, model, Types} from "mongoose";
-import { ICustomOrder, ICustomOrderModel } from "../utils/interfaces";
+import { ICustomOrder, ICustomOrderModel, IFileAttachment } from "../utils/interfaces";
 
 //Commencing the app
 
@@ -36,12 +36,11 @@ const customOrderSchema = new Schema<ICustomOrder, ICustomOrderModel>(
         type: Number,
         required: true,
       },
-      images: [{
-        type: String,
+      images: {
+        type: Array<IFileAttachment>,
         required: true,
-        trim: true,
-      }],
-      information: {
+      },
+      description: {
         type: String,
         required: true,
         trim: true,

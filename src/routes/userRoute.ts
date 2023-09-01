@@ -6,7 +6,10 @@ import {
     createTestimony,
     updateTestimony,
     createCartOrder,
-    createCustomOrder
+    getCartOrder,
+    createCustomOrder,
+    initializePayment,
+    verifyPayment
 } from "../controllers/userControler";
 
 //Commencing the app
@@ -21,7 +24,16 @@ router.patch("/user/dashboard/testimonial/:id", updateTestimony)
 //Cart route
 router.post("/user/dashboard/order/cart", createCartOrder);
 
+//Get Cart route
+router.get("/user/dashboard/order/cart/:id", getCartOrder)
+
 //Order route
 router.post("/user/dashboard/order/custom", createCustomOrder);
+
+//Initialize payment route
+router.post("/user/dashboard/payment/initialize", initializePayment);
+
+//Cart route
+router.post("/user/dashboard/payment/verify/:id", verifyPayment);
 
 export default router;

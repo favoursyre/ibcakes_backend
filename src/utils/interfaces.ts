@@ -23,7 +23,7 @@ export interface IInquiry {
 
 ///Declaring the interface for inquiry mongoose schema static
 export interface IInquiryModel extends Model<IInquiry> {
-    sendInquiry(inquiry: IInquiry): Array<IInquiry>,
+    sendInquiry(inquiry: IInquiry): IInquiry,
     getAllInquiry(): Array<IInquiry>
 }
 
@@ -43,7 +43,7 @@ export interface IProduct {
 
 ///Declaring the interface for product mongoose schema static
 export interface IProductModel extends Model<IProduct> {
-    createProduct(product: IProduct): Array<IProduct>,
+    createProduct(product: IProduct): IProduct,
     updateProduct(id: string, body: IProduct): IProduct,
     //updateProductImage(id: string, body: { imageIndex: number, imageLink: string }): IProduct,
     deleteProduct(id: string): IProduct,
@@ -91,8 +91,14 @@ export interface ICustomerSpec {
 ///Declaring the interface for custom product spec
 export interface ICustomSpec {
     budget: number,
-    images?: Array<string> | null,
+    images?: Array<IFileAttachment>,
     description: string
+}
+
+///Declaring the interface for file attachment
+export interface IFileAttachment {
+  name: string,
+  content: string,
 }
 
 ///Declaring the interface for custom order model
@@ -127,7 +133,7 @@ export interface ICartOrder {
     _id?: string,
     customerSpec: ICustomerSpec,
     productSpec: ICartSpec,
-    paymentSpec: IDebitCard,
+    paymentSpec: IPayment,
     createdAt?: string,
     updatedAt?: string,
     __v?: number
@@ -177,10 +183,9 @@ export interface ICartOrder {
   }  
 
   ///Declaring the interface for card payment details
-export interface IDebitCard {
-  cardHolderName?: string,
-  cardNumber?: string,
-  expirationMonth?: string,
-  expirationYear?: string,
-  cvv?: string
+export interface IPayment {
+  url?: string,
+  reference?: string,
+  status?: string,
+  accessCode?: string
 }
