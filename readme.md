@@ -6,7 +6,7 @@
 3. [Technologies](#technologies)
 
 ## Overview
-This is the backend of Ib Cakes website. Note: Application is not yet ready
+This is the backend of IB Cakes website. 
 
 ## Languages
 * HTML
@@ -14,5 +14,5 @@ This is the backend of Ib Cakes website. Note: Application is not yet ready
 * Typescript
 
 ## Technologies
-* Express.Ts
+* Express TS
 * Mongo DB
