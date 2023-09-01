@@ -189,3 +189,31 @@ export interface IPayment {
   status?: string,
   accessCode?: string
 }
+
+/**
+ * @notice The interface for Admin mongoose schema
+ * @param emailAddress The email address of the admin
+ * @param password The password of the admin
+ */
+export interface IAdmin {
+  emailAddress: String,
+  password: string
+}
+
+/**
+ * @notice The interface for Admin mongoose schema static
+ */
+export interface IAdminModel extends Model<IAdmin> {
+  createAdmin(): Array<Object>,
+  login(emailAddress: String, password: String): Object,
+  updateAdmin(emailAddress: String, password: String): Object,
+  deleteAdmin(id: String): Object
+}
+
+/**
+ * @notice The interface for JWTPayload
+ * @param _id The id of JWT
+ */
+export interface IJwtPayload {
+  _id: String
+}
