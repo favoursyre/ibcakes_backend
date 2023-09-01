@@ -9,8 +9,7 @@
 This is the backend of IB Cakes website. 
 
 ## Languages
-* HTML
-* CSS
+* Handlebars
 * Typescript
 
 ## Technologies
